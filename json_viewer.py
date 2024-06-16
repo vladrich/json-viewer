@@ -13,9 +13,9 @@ import json
 import sys
 
 # External
-from PyQt5 import QtCore
-from PyQt5 import QtGui
-from PyQt5 import QtWidgets
+from PyQt6 import QtCore
+from PyQt6 import QtGui
+from PyQt6 import QtWidgets
 
 class TextToTreeItem:
 
@@ -62,7 +62,7 @@ class JsonView(QtWidgets.QWidget):
 
         self.tree_widget = QtWidgets.QTreeWidget()
         self.tree_widget.setHeaderLabels(["Key", "Value"])
-        self.tree_widget.header().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.tree_widget.header().setSectionResizeMode(QtWidgets.QHeaderView.ResizeMode.Stretch)
 
         root_item = QtWidgets.QTreeWidgetItem(["Root"])
         self.recurse_jdata(jdata, root_item)
@@ -169,7 +169,7 @@ class JsonViewer(QtWidgets.QMainWindow):
 def main():
     qt_app = QtWidgets.QApplication(sys.argv)
     json_viewer = JsonViewer()
-    sys.exit(qt_app.exec_())
+    sys.exit(qt_app.exec())
 
 
 if "__main__" == __name__:
